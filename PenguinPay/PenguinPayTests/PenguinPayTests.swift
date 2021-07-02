@@ -8,26 +8,37 @@
 import XCTest
 @testable import PenguinPay
 
-class PenguinPayTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class ExtensionsTests: XCTestCase {
+    
+    func testConverter() {
+        
+        var decInt = 2
+        var binStr = "10"
+        
+        //From Decimal to binary
+        //"10" -> 2
+        XCTAssertEqual(binStr, decInt.decToBinString())
+        //binary To Decimal
+        //2 -> "10"
+        XCTAssertEqual(decInt, binStr.binToDec())
+        
+        decInt = 13511
+        binStr = "11010011000111"
+        
+        XCTAssertEqual(binStr, decInt.decToBinString())
+        XCTAssertEqual(decInt, binStr.binToDec())
     }
+    
+}
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+class CountriesProtocolTests: XCTestCase, CountriesProtocol {
+    
+    func testCountriesCurrency() {
+        XCTAssertEqual("KES", currency(for: .kenya))
+        XCTAssertEqual("NGN", currency(for: .nigeria))
+        XCTAssertEqual("TZS", currency(for: .tanzania))
+        XCTAssertEqual("UGX", currency(for: .uganda))
+        
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
 }

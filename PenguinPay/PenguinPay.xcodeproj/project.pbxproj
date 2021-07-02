@@ -18,6 +18,7 @@
 		78E2C439268F9B06004A0C0C /* ExchangeRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C438268F9B06004A0C0C /* ExchangeRateModel.swift */; };
 		78E2C43B268F9BB3004A0C0C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C43A268F9BB3004A0C0C /* Country.swift */; };
 		78E2C43D268F9C41004A0C0C /* CountriesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C43C268F9C41004A0C0C /* CountriesProtocol.swift */; };
+		78E2C440268FA130004A0C0C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C43F268FA130004A0C0C /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		78E2C438268F9B06004A0C0C /* ExchangeRateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateModel.swift; sourceTree = "<group>"; };
 		78E2C43A268F9BB3004A0C0C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		78E2C43C268F9C41004A0C0C /* CountriesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesProtocol.swift; sourceTree = "<group>"; };
+		78E2C43F268FA130004A0C0C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		78E2C403268F9A65004A0C0C /* PenguinPay */ = {
 			isa = PBXGroup;
 			children = (
+				78E2C43E268FA11A004A0C0C /* Extension */,
 				78E2C434268F9A98004A0C0C /* Model */,
 				78E2C404268F9A65004A0C0C /* AppDelegate.swift */,
 				78E2C406268F9A65004A0C0C /* SceneDelegate.swift */,
@@ -143,6 +146,14 @@
 				78E2C43C268F9C41004A0C0C /* CountriesProtocol.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		78E2C43E268FA11A004A0C0C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				78E2C43F268FA130004A0C0C /* Extensions.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 				78E2C409268F9A65004A0C0C /* ViewController.swift in Sources */,
 				78E2C405268F9A65004A0C0C /* AppDelegate.swift in Sources */,
 				78E2C43D268F9C41004A0C0C /* CountriesProtocol.swift in Sources */,
+				78E2C440268FA130004A0C0C /* Extensions.swift in Sources */,
 				78E2C439268F9B06004A0C0C /* ExchangeRateModel.swift in Sources */,
 				78E2C407268F9A65004A0C0C /* SceneDelegate.swift in Sources */,
 				78E2C43B268F9BB3004A0C0C /* Country.swift in Sources */,

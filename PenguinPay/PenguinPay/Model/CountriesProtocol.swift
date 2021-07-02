@@ -9,7 +9,7 @@ import Foundation
 
 protocol CountriesProtocol {
     var countries: [CountryList: Country] { get}
-    func currency(for country: Country) -> String
+    func currency(for country: CountryList) -> String
 }
 
 extension CountriesProtocol {
