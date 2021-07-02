@@ -16,6 +16,8 @@
 		78E2C41C268F9A67004A0C0C /* PenguinPayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C41B268F9A67004A0C0C /* PenguinPayTests.swift */; };
 		78E2C427268F9A67004A0C0C /* PenguinPayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C426268F9A67004A0C0C /* PenguinPayUITests.swift */; };
 		78E2C439268F9B06004A0C0C /* ExchangeRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C438268F9B06004A0C0C /* ExchangeRateModel.swift */; };
+		78E2C43B268F9BB3004A0C0C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C43A268F9BB3004A0C0C /* Country.swift */; };
+		78E2C43D268F9C41004A0C0C /* CountriesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C43C268F9C41004A0C0C /* CountriesProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		78E2C426268F9A67004A0C0C /* PenguinPayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguinPayUITests.swift; sourceTree = "<group>"; };
 		78E2C428268F9A67004A0C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78E2C438268F9B06004A0C0C /* ExchangeRateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateModel.swift; sourceTree = "<group>"; };
+		78E2C43A268F9BB3004A0C0C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		78E2C43C268F9C41004A0C0C /* CountriesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				78E2C438268F9B06004A0C0C /* ExchangeRateModel.swift */,
+				78E2C43A268F9BB3004A0C0C /* Country.swift */,
+				78E2C43C268F9C41004A0C0C /* CountriesProtocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,8 +277,10 @@
 			files = (
 				78E2C409268F9A65004A0C0C /* ViewController.swift in Sources */,
 				78E2C405268F9A65004A0C0C /* AppDelegate.swift in Sources */,
+				78E2C43D268F9C41004A0C0C /* CountriesProtocol.swift in Sources */,
 				78E2C439268F9B06004A0C0C /* ExchangeRateModel.swift in Sources */,
 				78E2C407268F9A65004A0C0C /* SceneDelegate.swift in Sources */,
+				78E2C43B268F9BB3004A0C0C /* Country.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
