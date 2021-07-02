@@ -15,6 +15,7 @@
 		78E2C411268F9A67004A0C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E2C40F268F9A67004A0C0C /* LaunchScreen.storyboard */; };
 		78E2C41C268F9A67004A0C0C /* PenguinPayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C41B268F9A67004A0C0C /* PenguinPayTests.swift */; };
 		78E2C427268F9A67004A0C0C /* PenguinPayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C426268F9A67004A0C0C /* PenguinPayUITests.swift */; };
+		78E2C439268F9B06004A0C0C /* ExchangeRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C438268F9B06004A0C0C /* ExchangeRateModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		78E2C422268F9A67004A0C0C /* PenguinPayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenguinPayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E2C426268F9A67004A0C0C /* PenguinPayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguinPayUITests.swift; sourceTree = "<group>"; };
 		78E2C428268F9A67004A0C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78E2C438268F9B06004A0C0C /* ExchangeRateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		78E2C403268F9A65004A0C0C /* PenguinPay */ = {
 			isa = PBXGroup;
 			children = (
+				78E2C434268F9A98004A0C0C /* Model */,
 				78E2C404268F9A65004A0C0C /* AppDelegate.swift */,
 				78E2C406268F9A65004A0C0C /* SceneDelegate.swift */,
 				78E2C408268F9A65004A0C0C /* ViewController.swift */,
@@ -126,6 +129,14 @@
 				78E2C428268F9A67004A0C0C /* Info.plist */,
 			);
 			path = PenguinPayUITests;
+			sourceTree = "<group>";
+		};
+		78E2C434268F9A98004A0C0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78E2C438268F9B06004A0C0C /* ExchangeRateModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			files = (
 				78E2C409268F9A65004A0C0C /* ViewController.swift in Sources */,
 				78E2C405268F9A65004A0C0C /* AppDelegate.swift in Sources */,
+				78E2C439268F9B06004A0C0C /* ExchangeRateModel.swift in Sources */,
 				78E2C407268F9A65004A0C0C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
