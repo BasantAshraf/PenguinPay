@@ -19,6 +19,7 @@
 		78E2C43B268F9BB3004A0C0C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C43A268F9BB3004A0C0C /* Country.swift */; };
 		78E2C43D268F9C41004A0C0C /* CountriesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C43C268F9C41004A0C0C /* CountriesProtocol.swift */; };
 		78E2C440268FA130004A0C0C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C43F268FA130004A0C0C /* Extensions.swift */; };
+		78E2C442268FA6A9004A0C0C /* CurrencyConverterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C441268FA6A9004A0C0C /* CurrencyConverterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		78E2C43A268F9BB3004A0C0C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		78E2C43C268F9C41004A0C0C /* CountriesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesProtocol.swift; sourceTree = "<group>"; };
 		78E2C43F268FA130004A0C0C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		78E2C441268FA6A9004A0C0C /* CurrencyConverterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				78E2C438268F9B06004A0C0C /* ExchangeRateModel.swift */,
 				78E2C43A268F9BB3004A0C0C /* Country.swift */,
 				78E2C43C268F9C41004A0C0C /* CountriesProtocol.swift */,
+				78E2C441268FA6A9004A0C0C /* CurrencyConverterProtocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				78E2C439268F9B06004A0C0C /* ExchangeRateModel.swift in Sources */,
 				78E2C407268F9A65004A0C0C /* SceneDelegate.swift in Sources */,
 				78E2C43B268F9BB3004A0C0C /* Country.swift in Sources */,
+				78E2C442268FA6A9004A0C0C /* CurrencyConverterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
