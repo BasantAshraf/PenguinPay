@@ -36,7 +36,7 @@ extension String {
     }
     
     func binToDecDouble() -> Double {
-        return Double(Int(self, radix: 2)!)
+        return Double(Int(self, radix: 2) ?? 0)
     }
     
     func trimmedLeadingZeros() -> String {

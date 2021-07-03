@@ -8,6 +8,7 @@
 import Foundation
 
 protocol CurrencyConverterProtocol {
+  //  010110 Binaria  ⇒ 22 USD ⇒    1 USD = 361.50 ⇒ (22 * 361.5 = 7953) ⇒  01111100010001 USD.
     func exchange(Binaria: String) -> String
 }
 

@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'PenguinPay' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  
+  # Pods for PenguinPay
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
+  pod 'IQKeyboardManagerSwift'
+  
+  target 'PenguinPayTests' do
+    inherit! :search_paths
+    #pod 'RxBlocking'
+    #  pod 'RxTest'
+  end
+  
+  target 'PenguinPayUITests' do
+    # Pods for testing
+  end
+  
+end

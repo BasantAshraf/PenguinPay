@@ -9,13 +9,13 @@ import XCTest
 @testable import PenguinPay
 
 class ExtensionsTests: XCTestCase, CurrencyConverterProtocol {
-    
+
     func testConverter() {
-        
+
         var decInt = 2
         var binStr = "10"
         var decDouble: Double = 2.0
-        
+
         //From Decimal to binary
         //"10" -> 2
         XCTAssertEqual(binStr, decInt.decToBinString())
@@ -28,23 +28,23 @@ class ExtensionsTests: XCTestCase, CurrencyConverterProtocol {
         binStr = "010110"
         decDouble = 22.0
 
-        
+
         XCTAssertEqual(binStr.trimmedLeadingZeros(), decInt.decToBinString())
         XCTAssertEqual(decInt, binStr.binToDec())
         XCTAssertEqual(binStr.trimmedLeadingZeros(), decDouble.decToBinString())
         XCTAssertEqual("01111100010001".trimmedLeadingZeros(), exchange(Binaria: binStr))
     }
-    
+
 }
 
 class CountriesProtocolTests: XCTestCase, CountriesProtocol {
-    
+
     func testCountriesCurrency() {
         XCTAssertEqual("KES", currency(for: .kenya))
         XCTAssertEqual("NGN", currency(for: .nigeria))
         XCTAssertEqual("TZS", currency(for: .tanzania))
         XCTAssertEqual("UGX", currency(for: .uganda))
-        
+
     }
-    
+
 }

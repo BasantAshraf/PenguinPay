@@ -1,24 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Send Transactions View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SendTransactionsViewController" customModule="PenguinPay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Transaction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DL2-lj-irU">
+                                <rect key="frame" x="97.5" y="144" width="219.5" height="32.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <color key="textColor" red="0.094117647060000004" green="0.35294117650000001" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlp-cl-2he">
+                                <rect key="frame" x="20" y="762" width="374" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.78823529411764703" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="y3S-BF-JAP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="0.094117647060000004" green="0.35294117650000001" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRm-oJ-sQB">
+                                <rect key="frame" x="186.5" y="436.5" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zig-ho-9Ow">
+                                <rect key="frame" x="20" y="226.5" width="374" height="160"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r4z-kX-PrX" customClass="CustomTextField" customModule="PenguinPay" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="42H-Iy-pCr" customClass="CustomTextField" customModule="PenguinPay" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="42" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhR-0h-JcB" customClass="CustomTextField" customModule="PenguinPay" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="84" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1W-Ot-M13" customClass="CustomTextField" customModule="PenguinPay" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="126" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GRm-oJ-sQB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1pA-IW-DCF"/>
+                            <constraint firstItem="vlp-cl-2he" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="E07-wH-U6n"/>
+                            <constraint firstItem="zig-ho-9Ow" firstAttribute="top" secondItem="DL2-lj-irU" secondAttribute="bottom" constant="50" id="HxX-ye-Rt7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vlp-cl-2he" secondAttribute="bottom" constant="50" id="NwE-GT-Hdf"/>
+                            <constraint firstItem="DL2-lj-irU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PYv-nQ-X7R"/>
+                            <constraint firstItem="vlp-cl-2he" firstAttribute="width" secondItem="zig-ho-9Ow" secondAttribute="width" id="U0k-dz-1Kh"/>
+                            <constraint firstItem="zig-ho-9Ow" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nvk-Yn-A3p"/>
+                            <constraint firstItem="GRm-oJ-sQB" firstAttribute="top" secondItem="zig-ho-9Ow" secondAttribute="bottom" constant="50" id="oJh-zG-4JH"/>
+                            <constraint firstItem="zig-ho-9Ow" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pAC-3H-kOZ"/>
+                            <constraint firstItem="vlp-cl-2he" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GRm-oJ-sQB" secondAttribute="bottom" constant="20" id="uAU-UR-6n9"/>
+                            <constraint firstItem="DL2-lj-irU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="vBz-Uv-6ZX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amountInBinariaToSendTextField" destination="a1W-Ot-M13" id="JqV-1E-zvH"/>
+                        <outlet property="amountInLocalCurrencyLabel" destination="GRm-oJ-sQB" id="c7q-9p-U3h"/>
+                        <outlet property="firstNameTextField" destination="r4z-kX-PrX" id="cF5-a7-53P"/>
+                        <outlet property="lastNameTextField" destination="42H-Iy-pCr" id="Y9Y-sa-np0"/>
+                        <outlet property="phoneTextField" destination="hhR-0h-JcB" id="cBV-fF-bgd"/>
+                        <outlet property="sendButton" destination="vlp-cl-2he" id="W2W-V1-usA"/>
+                        <outlet property="titleLabel" destination="DL2-lj-irU" id="KEP-RK-Wpk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="68" y="94"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="42H-Iy-pCr">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="a1W-Ot-M13">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="hhR-0h-JcB">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="r4z-kX-PrX">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+    </designables>
 </document>
