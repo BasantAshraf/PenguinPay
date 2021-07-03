@@ -12,6 +12,19 @@ enum CountryList {
     case nigeria
     case tanzania
     case uganda
+    
+    var flag: String {
+        switch self {
+        case .kenya:
+            return "🇰🇪"
+        case .nigeria:
+            return "🇳🇬"
+        case .tanzania:
+            return "🇹🇿"
+        case .uganda:
+            return "🇺🇬"
+        }
+    }
 }
 
 struct Country {
