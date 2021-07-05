@@ -44,7 +44,6 @@ class CountriesProtocolTests: XCTestCase, CountriesProtocol {
         XCTAssertEqual("NGN", currency(for: .nigeria))
         XCTAssertEqual("TZS", currency(for: .tanzania))
         XCTAssertEqual("UGX", currency(for: .uganda))
-
     }
 
 }

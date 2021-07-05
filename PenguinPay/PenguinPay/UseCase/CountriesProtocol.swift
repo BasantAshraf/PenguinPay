@@ -10,6 +10,7 @@ import Foundation
 protocol CountriesProtocol {
     var countries: [CountryList: Country] { get}
     func currency(for country: CountryList) -> String?
+    var defaultCountry: CountryList { get}
 }
 
 extension CountriesProtocol {
@@ -43,4 +44,9 @@ extension CountriesProtocol {
     func currency(for country: CountryList) -> String? {
         countries[country]?.currency
     }
+    
+    var defaultCountry: CountryList {
+        .nigeria
+    }
+
 }

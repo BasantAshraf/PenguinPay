@@ -11,7 +11,7 @@ import RxSwift
 class CountriesPickerView: UIPickerView, CountriesProtocol {
     
     let countries: [CountryList] = CountryList.allCases
-    var selectedRow: Observable<CountryList>?
+    var selectedRow: Observable<CountryList> = .just(.nigeria) // default value inside pickerView
     
     let disposeBag = DisposeBag()
     

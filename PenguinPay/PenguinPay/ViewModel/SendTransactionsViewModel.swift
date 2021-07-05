@@ -17,7 +17,7 @@ struct FormOfReceipient {
     let amountToSendInBinaria: String
 }
 
-class SendTransactionsViewModel: CurrencyConverterProtocol {
+class SendTransactionsViewModel: CurrencyConverterProtocol, CountriesProtocol {
     private let disposeBag = DisposeBag()
     
     
@@ -31,6 +31,7 @@ extension SendTransactionsViewModel: ViewModelType {
         let phoneNumber: Driver<String>
         let amountToSendInBinaria: Driver<String>
         let sendAction: Driver<Void>
+        let selectedCountry: Driver<CountryList>
     }
     
     struct Output {
@@ -38,6 +39,7 @@ extension SendTransactionsViewModel: ViewModelType {
         let alertTrigger: Driver<Void>
         let amountInLocalCurrency: Driver<String>
         let isValid: Driver<Bool>
+        let isValidPhoneNumber: Driver<Bool>
         //        let error: Driver<Error>
     }
     
@@ -53,9 +55,16 @@ extension SendTransactionsViewModel: ViewModelType {
                 && amount.count > 0
         }
         
+       let isValidPhoneNumber = Driver.combineLatest(input.selectedCountry, input.phoneNumber)
+            .map({ [unowned self] country, phoneNumber -> Bool in
+                if phoneNumber.isEmpty || phoneNumber == "" { return true}
+                guard let selectedCountry = self.countries[country] else { return false}
+                return phoneNumber.count <= selectedCountry.maxNumberAfterPrefix
+            })
         return Output(alertTrigger: alertTrigger,
                       amountInLocalCurrency: amountToSend,
-                      isValid: isValid)
+                      isValid: isValid,
+                      isValidPhoneNumber: isValidPhoneNumber)
     }
     
 }

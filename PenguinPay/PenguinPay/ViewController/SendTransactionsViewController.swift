@@ -49,10 +49,10 @@ class SendTransactionsViewController: UIViewController, CountriesProtocol {
     
     func setupPickerView() {
         countryCodeTextField.inputView = pickerView
-        pickerView.selectedRow = .just(.nigeria) // default value inside pickerView
+        pickerView.selectedRow = .just(defaultCountry) // default value inside pickerView
 
-        pickerView.selectedRow?
-            .compactMap{$0}
+        // populate country picker whenever pick a new country
+        pickerView.selectedRow
             .subscribe { country in
                 self.countryCodeTextField.text = self.countries[country]?.flagWithCode
             }
@@ -60,22 +60,38 @@ class SendTransactionsViewController: UIViewController, CountriesProtocol {
     }
 
     func bindViewModel() {
+        let selectedCountryDriver = pickerView.selectedRow.asDriver(onErrorJustReturn: defaultCountry)
+        let phoneNumberDidEndEditingDriver = phoneTextField.rx.controlEvent([.editingDidEnd])
+            .map{self.phoneTextField.text ?? "" }
+            .asDriver(onErrorJustReturn: "")
+        
         let input = SendTransactionsViewModel
             .Input(firstName: firstNameTextField.rx.text.orEmpty.asDriver(),
                 lastName: lastNameTextField.rx.text.orEmpty.asDriver(),
-                phoneNumber: phoneTextField.rx.text.orEmpty.asDriver(),
+                phoneNumber: phoneNumberDidEndEditingDriver,
                 amountToSendInBinaria: amountInBinariaToSendTextField.rx.text.orEmpty.asDriver(),
-                   sendAction: sendButton.rx.tap.asDriver())
+                sendAction: sendButton.rx.tap.asDriver(),
+                selectedCountry: selectedCountryDriver)
+
         let output = viewModel.transform(input: input)
         
         _ = output.amountInLocalCurrency
             .drive(amountInLocalCurrencyLabel.rx.text)
+            .disposed(by: disposeBag)
         
         output.isValid
             .drive(onNext: { [weak self] isValid in
                 self?.sendButton.isEnabled = isValid
                 self?.sendButton.backgroundColor = Pallette.color4.withAlphaComponent(isValid ? 1 : 0.5)
             }).disposed(by: disposeBag)
+        
+        // validate phone number with country code selected
+        Driver.combineLatest(selectedCountryDriver, output.isValidPhoneNumber)
+            .drive(onNext: { [weak self] country, isValid in
+                self?.phoneTextField.errorMessage =  isValid ? nil : "please enter valid phone"
+                self?.countryCodeTextField.text = self?.countries[country]?.flagWithCode
+            }).disposed(by: disposeBag)
+                
     }
     
 }

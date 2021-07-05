@@ -12,7 +12,6 @@
 		61F92A93471C3D3F1434890C /* Pods_PenguinPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAE3D1BDF263FC8680AA6F43 /* Pods_PenguinPay.framework */; };
 		7810A8B626928A3B0070B0FA /* CountriesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7810A8B526928A3B0070B0FA /* CountriesPickerView.swift */; };
 		78237B9A269387800082D413 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78237B99269387800082D413 /* NetworkManager.swift */; };
-		78B52B57268FCE980058DB8E /* RegexMatcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B52B56268FCE980058DB8E /* RegexMatcherProtocol.swift */; };
 		78B52B59268FD87B0058DB8E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B52B58268FD87B0058DB8E /* CustomTextField.swift */; };
 		78B52B5B268FF0E40058DB8E /* Pallette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B52B5A268FF0E40058DB8E /* Pallette.swift */; };
 		78E2C405268F9A65004A0C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2C404268F9A65004A0C0C /* AppDelegate.swift */; };
@@ -57,7 +56,6 @@
 		4060BC4C1C5029498865A1BB /* Pods-PenguinPay-PenguinPayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenguinPay-PenguinPayUITests.release.xcconfig"; path = "Target Support Files/Pods-PenguinPay-PenguinPayUITests/Pods-PenguinPay-PenguinPayUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7810A8B526928A3B0070B0FA /* CountriesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesPickerView.swift; sourceTree = "<group>"; };
 		78237B99269387800082D413 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		78B52B56268FCE980058DB8E /* RegexMatcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexMatcherProtocol.swift; sourceTree = "<group>"; };
 		78B52B58268FD87B0058DB8E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		78B52B5A268FF0E40058DB8E /* Pallette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pallette.swift; sourceTree = "<group>"; };
 		78E2C401268F9A65004A0C0C /* PenguinPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguinPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				78E2C441268FA6A9004A0C0C /* CurrencyConverterProtocol.swift */,
-				78B52B56268FCE980058DB8E /* RegexMatcherProtocol.swift */,
 				78E2C43C268F9C41004A0C0C /* CountriesProtocol.swift */,
 			);
 			path = UseCase;
@@ -512,7 +509,6 @@
 				78B52B5B268FF0E40058DB8E /* Pallette.swift in Sources */,
 				78237B9A269387800082D413 /* NetworkManager.swift in Sources */,
 				78E2C442268FA6A9004A0C0C /* CurrencyConverterProtocol.swift in Sources */,
-				78B52B57268FCE980058DB8E /* RegexMatcherProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
