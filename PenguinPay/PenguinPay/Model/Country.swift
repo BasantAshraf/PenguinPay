@@ -7,29 +7,21 @@
 
 import Foundation
 
-enum CountryList {
+enum CountryList: CaseIterable {
     case kenya
     case nigeria
     case tanzania
     case uganda
-    
-    var flag: String {
-        switch self {
-        case .kenya:
-            return "🇰🇪"
-        case .nigeria:
-            return "🇳🇬"
-        case .tanzania:
-            return "🇹🇿"
-        case .uganda:
-            return "🇺🇬"
-        }
-    }
 }
 
 struct Country {
     var name: String
     var currency: String
+    var flag: String
     var phonePrefix: Int
     var maxNumberAfterPrefix: Int
+    
+    var flagWithCode: String {
+        "\(flag)    +\(phonePrefix)"
+    }
 }

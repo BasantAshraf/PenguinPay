@@ -9,13 +9,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SendTransactionsViewController: UIViewController {
+class SendTransactionsViewController: UIViewController, CountriesProtocol {
     
+    let pickerView =  CountriesPickerView()
+
     @IBOutlet weak var sendButton: UIButton!
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var firstNameTextField: CustomTextField!
     @IBOutlet weak var lastNameTextField: CustomTextField!
+    @IBOutlet weak var countryCodeTextField: CustomTextField!
     @IBOutlet weak var phoneTextField: CustomTextField!
     @IBOutlet weak var amountInBinariaToSendTextField: CustomTextField!
     @IBOutlet weak var amountInLocalCurrencyLabel: UILabel!
@@ -26,6 +28,7 @@ class SendTransactionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupPickerView()
         bindViewModel()
     }
     
@@ -34,12 +37,26 @@ class SendTransactionsViewController: UIViewController {
         lastNameTextField.placeholder = "Last Name"
         phoneTextField.placeholder = "Phone"
         amountInBinariaToSendTextField.placeholder = "amount In Binaria"
+
+        countryCodeTextField.textAlignment = .center
         sendButton.layer.cornerRadius = 15
         view.backgroundColor = Pallette.color1
         titleLabel.textColor = Pallette.color2
         amountInLocalCurrencyLabel.textColor = Pallette.color3
         sendButton.setTitleColor(Pallette.color2, for: .normal)
         sendButton.backgroundColor = Pallette.color4
+    }
+    
+    func setupPickerView() {
+        countryCodeTextField.inputView = pickerView
+        pickerView.selectedRow = .just(.nigeria) // default value inside pickerView
+
+        pickerView.selectedRow?
+            .compactMap{$0}
+            .subscribe { country in
+                self.countryCodeTextField.text = self.countries[country]?.flagWithCode
+            }
+            .disposed(by: disposeBag)
     }
 
     func bindViewModel() {
@@ -51,12 +68,9 @@ class SendTransactionsViewController: UIViewController {
                    sendAction: sendButton.rx.tap.asDriver())
         let output = viewModel.transform(input: input)
         
-        _ = output.amountInLocalCurrency.drive(amountInLocalCurrencyLabel.rx.text)
+        _ = output.amountInLocalCurrency
+            .drive(amountInLocalCurrencyLabel.rx.text)
         
-//        output.isValid.asObservable()
-//                  .bind(to: sendButton.rx.isEnabled)
-//                  .disposed(by: disposeBag)
-//
         output.isValid
             .drive(onNext: { [weak self] isValid in
                 self?.sendButton.isEnabled = isValid
@@ -65,4 +79,3 @@ class SendTransactionsViewController: UIViewController {
     }
     
 }
-

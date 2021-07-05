@@ -9,25 +9,29 @@ import Foundation
 
 protocol CountriesProtocol {
     var countries: [CountryList: Country] { get}
-    func currency(for country: CountryList) -> String
+    func currency(for country: CountryList) -> String?
 }
 
 extension CountriesProtocol {
     var countries: [CountryList: Country] {
         let kenya = Country(name: "Kenya",
                             currency: "KES",
+                            flag: "🇰🇪",
                             phonePrefix: 254,
                             maxNumberAfterPrefix: 9)
         let nigeria = Country(name: "Nigeria",
-                            currency: "NGN",
+                              currency: "NGN",
+                              flag: "🇳🇬",
                             phonePrefix: 234,
                             maxNumberAfterPrefix: 7)
         let tanzania = Country(name: "Tanzania",
-                            currency: "TZS",
+                               currency: "TZS",
+                               flag: "🇹🇿",
                             phonePrefix: 255,
                             maxNumberAfterPrefix: 9)
         let uganda = Country(name: "Uganda",
-                            currency: "UGX",
+                             currency: "UGX",
+                             flag: "🇺🇬",
                             phonePrefix: 256,
                             maxNumberAfterPrefix: 7)
         return [.kenya: kenya,
@@ -36,7 +40,7 @@ extension CountriesProtocol {
                     .uganda: uganda]
     }
     
-    func currency(for country: CountryList) -> String {
-        countries[country]?.currency ?? ""
+    func currency(for country: CountryList) -> String? {
+        countries[country]?.currency
     }
 }

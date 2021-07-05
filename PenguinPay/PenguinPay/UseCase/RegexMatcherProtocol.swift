@@ -13,14 +13,8 @@ protocol RegexMatcherProtocol {
 
 extension RegexMatcherProtocol  {
     func matches(for regex: String, in text: String) -> Bool {
-        do {
-            let regex = try NSRegularExpression(pattern: regex)
-            let nsString = text as NSString
-            let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
-            return !results.isEmpty
-        } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
-            return false
-        }
+        guard let regex = try? NSRegularExpression(pattern: regex) else { return false }
+        let range = NSRange(location: 0, length: text.utf16.count)
+        return regex.firstMatch(in: text, options: [], range: range) != nil
     }
 }

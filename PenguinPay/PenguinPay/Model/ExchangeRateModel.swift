@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExchangeRateModel {
+struct ExchangeRateModel: Codable {
     let disclaimer: String
     let license: String
     let timestamp: Int
