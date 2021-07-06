@@ -29,6 +29,7 @@ extension SendTransactionsViewModel: ViewModelType {
         let firstName: Driver<String>
         let lastName: Driver<String>
         let phoneNumber: Driver<String>
+        let phoneNumberEndEditing: Driver<String>
         let amountToSendInBinaria: Driver<String>
         let sendAction: Driver<Void>
         let selectedCountry: Driver<CountryList>
@@ -47,7 +48,7 @@ extension SendTransactionsViewModel: ViewModelType {
         
         let amountToSend = input.amountToSendInBinaria.map{ self.exchange(Binaria: $0)}
         let alertTrigger = Driver.merge(input.sendAction, amountToSend.map{_ in })
-
+        
         let isValid: Driver<Bool> = Driver.combineLatest(input.firstName, input.lastName, input.phoneNumber, input.amountToSendInBinaria).map { firstName, lastName, phone, amount -> Bool in
             return firstName.count > 0
                 && lastName.count > 0
@@ -55,15 +56,21 @@ extension SendTransactionsViewModel: ViewModelType {
                 && amount.count > 0
         }
         
-       let isValidPhoneNumber = Driver.combineLatest(input.selectedCountry, input.phoneNumber)
+        let isValidPhoneNumber = Driver.combineLatest(input.selectedCountry, input.phoneNumberEndEditing)
             .map({ [unowned self] country, phoneNumber -> Bool in
-                if phoneNumber.isEmpty || phoneNumber == "" { return true}
+                let isEmpty = phoneNumber.isEmpty || phoneNumber == ""
                 guard let selectedCountry = self.countries[country] else { return false}
-                return phoneNumber.count <= selectedCountry.maxNumberAfterPrefix
+                return !isEmpty && phoneNumber.count <= selectedCountry.maxNumberAfterPrefix
             })
+        
+        let isValidForm = Driver
+            .combineLatest(isValid, isValidPhoneNumber)
+            .map { $0 && $1}
+            .startWith(false)
+        
         return Output(alertTrigger: alertTrigger,
                       amountInLocalCurrency: amountToSend,
-                      isValid: isValid,
+                      isValid: isValidForm,
                       isValidPhoneNumber: isValidPhoneNumber)
     }
     

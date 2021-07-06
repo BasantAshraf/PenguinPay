@@ -68,7 +68,8 @@ class SendTransactionsViewController: UIViewController, CountriesProtocol {
         let input = SendTransactionsViewModel
             .Input(firstName: firstNameTextField.rx.text.orEmpty.asDriver(),
                 lastName: lastNameTextField.rx.text.orEmpty.asDriver(),
-                phoneNumber: phoneNumberDidEndEditingDriver,
+                phoneNumber: phoneTextField.rx.text.orEmpty.asDriver(),
+                phoneNumberEndEditing: phoneNumberDidEndEditingDriver,
                 amountToSendInBinaria: amountInBinariaToSendTextField.rx.text.orEmpty.asDriver(),
                 sendAction: sendButton.rx.tap.asDriver(),
                 selectedCountry: selectedCountryDriver)
