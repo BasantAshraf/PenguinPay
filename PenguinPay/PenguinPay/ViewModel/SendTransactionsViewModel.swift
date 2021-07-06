@@ -19,7 +19,7 @@ struct FormOfReceipient {
 
 class SendTransactionsViewModel: ViewModelType, CurrencyConverterProtocol, CountriesProtocol {
     private let disposeBag = DisposeBag()
- 
+    
     struct Input {
         let firstName: Driver<String>
         let lastName: Driver<String>
@@ -41,12 +41,14 @@ class SendTransactionsViewModel: ViewModelType, CurrencyConverterProtocol, Count
     
     func transform(input: Input) -> Output {
         
-        let amountToSend = input.binariaDidEndEditing.asObservable()
-            .flatMap { binariaAmount -> Observable<String> in
-                self.exchange(Binaria: binariaAmount)
-    }.asDriver(onErrorJustReturn: "")
-    
-
+        let amountToSend = Driver.combineLatest(input.selectedCountry, input.binariaDidEndEditing)
+            .flatMap({ [unowned self] country, binariaAmount -> Driver<String> in
+                guard let currencyCode = self.countries[country]?.currency else { return .just("invalid currency code")}
+                return self.exchange(Binaria: binariaAmount, countryCode: currencyCode).asDriver(onErrorJustReturn: "")
+            })
+        
+        
+        
         let alertTrigger = input.sendAction
         
         let isValid: Driver<Bool> = Driver.combineLatest(input.firstName, input.lastName, input.phoneNumber, input.amountToSendInBinaria).map { firstName, lastName, phone, amount -> Bool in

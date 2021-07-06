@@ -23,22 +23,22 @@ extension CountriesProtocol {
         let nigeria = Country(name: "Nigeria",
                               currency: "NGN",
                               flag: "🇳🇬",
-                            phonePrefix: 234,
-                            maxNumberAfterPrefix: 7)
+                              phonePrefix: 234,
+                              maxNumberAfterPrefix: 7)
         let tanzania = Country(name: "Tanzania",
                                currency: "TZS",
                                flag: "🇹🇿",
-                            phonePrefix: 255,
-                            maxNumberAfterPrefix: 9)
+                               phonePrefix: 255,
+                               maxNumberAfterPrefix: 9)
         let uganda = Country(name: "Uganda",
                              currency: "UGX",
                              flag: "🇺🇬",
-                            phonePrefix: 256,
-                            maxNumberAfterPrefix: 7)
-        return [.kenya: kenya,
-                    .nigeria: nigeria,
-                    .tanzania: tanzania,
-                    .uganda: uganda]
+                             phonePrefix: 256,
+                             maxNumberAfterPrefix: 7)
+        return [.nigeria: nigeria,
+                .kenya: kenya,
+                .tanzania: tanzania,
+                .uganda: uganda]
     }
     
     func currency(for country: CountryList) -> String? {

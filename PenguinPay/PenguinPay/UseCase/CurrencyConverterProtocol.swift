@@ -10,17 +10,17 @@ import RxSwift
 
 protocol CurrencyConverterProtocol {
   //  010110 Binaria  ⇒ 22 USD ⇒    1 USD = 361.50 ⇒ (22 * 361.5 = 7953) ⇒  01111100010001 USD.
-    func exchange(Binaria: String) -> Observable<String>
+    func exchange(Binaria: String, countryCode: String) -> Observable<String>
     func testExchange(Binaria: String) -> String
 }
 
 extension CurrencyConverterProtocol {
-    func exchange(Binaria: String) -> Observable<String> {
+    func exchange(Binaria: String, countryCode: String) -> Observable<String> {
         FetchExchangeRatesUseCase()
             .fetch()
             .map { exchanges in
                 let usd = exchangeBinariaToUSD(Binaria: Binaria)
-                guard let usdEquivalentRate = exchanges.rates["KES"] else { return ""}
+                guard let usdEquivalentRate = exchanges.rates[countryCode] else { return "country code not found"}
                 print("rate is \(String(describing: usdEquivalentRate))")
                 let amountToSend = (usdEquivalentRate * usd).decToBinString()
                 return " 1 usd = \(usdEquivalentRate.decToBinString()) \n you will send \(amountToSend) Binaria "

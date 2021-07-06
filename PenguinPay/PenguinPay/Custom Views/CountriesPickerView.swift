@@ -7,11 +7,12 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class CountriesPickerView: UIPickerView, CountriesProtocol {
     
-    let countries: [CountryList] = CountryList.allCases
-    var selectedRow: Observable<CountryList> = .just(.nigeria) // default value inside pickerView
+    let countries: [CountryList] = [.nigeria, .kenya, .tanzania, .uganda]
+    var selectedRow = BehaviorRelay<CountryList>(value: .nigeria) // default value inside pickerView
     
     let disposeBag = DisposeBag()
     
@@ -30,10 +31,14 @@ class CountriesPickerView: UIPickerView, CountriesProtocol {
                 guard let country = self.countries[element] else { return nil }
                 return country.flagWithCode
             }.disposed(by: disposeBag)
-        
-        selectedRow = self.rx.itemSelected
-            .map{ selected in self.countries[selected.row]}
 
+        // did select country code
+       _ = self.rx.itemSelected
+        .subscribe(onNext: { [weak self] row, component in
+            guard let self = self else { return }
+            self.selectedRow.accept(  self.countries[row])
+        }).disposed(by: disposeBag)
+        
     }
     
 }

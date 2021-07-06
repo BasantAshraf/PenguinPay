@@ -52,7 +52,6 @@ class SendTransactionsViewController: UIViewController, CountriesProtocol {
     
     func setupPickerView() {
         countryCodeTextField.inputView = pickerView
-        pickerView.selectedRow = .just(defaultCountry)
         
         // populate country picker whenever pick a new country
         pickerView.selectedRow
