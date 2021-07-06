@@ -17,37 +17,37 @@ struct FormOfReceipient {
     let amountToSendInBinaria: String
 }
 
-class SendTransactionsViewModel: CurrencyConverterProtocol, CountriesProtocol {
+class SendTransactionsViewModel: ViewModelType, CurrencyConverterProtocol, CountriesProtocol {
     private let disposeBag = DisposeBag()
-    
-    
-}
-
-extension SendTransactionsViewModel: ViewModelType {
-    
+ 
     struct Input {
         let firstName: Driver<String>
         let lastName: Driver<String>
         let phoneNumber: Driver<String>
         let phoneNumberEndEditing: Driver<String>
         let amountToSendInBinaria: Driver<String>
+        let binariaDidEndEditing: Driver<String>
         let sendAction: Driver<Void>
         let selectedCountry: Driver<CountryList>
     }
     
     struct Output {
-        //        let fetching: Driver<Bool>
         let alertTrigger: Driver<Void>
         let amountInLocalCurrency: Driver<String>
         let isValid: Driver<Bool>
         let isValidPhoneNumber: Driver<Bool>
-        //        let error: Driver<Error>
+        let isValidBinaria: Driver<Bool>
     }
     
     func transform(input: Input) -> Output {
         
-        let amountToSend = input.amountToSendInBinaria.map{ self.exchange(Binaria: $0)}
-        let alertTrigger = Driver.merge(input.sendAction, amountToSend.map{_ in })
+        let amountToSend = input.binariaDidEndEditing.asObservable()
+            .flatMap { binariaAmount -> Observable<String> in
+                self.exchange(Binaria: binariaAmount)
+    }.asDriver(onErrorJustReturn: "")
+    
+
+        let alertTrigger = input.sendAction
         
         let isValid: Driver<Bool> = Driver.combineLatest(input.firstName, input.lastName, input.phoneNumber, input.amountToSendInBinaria).map { firstName, lastName, phone, amount -> Bool in
             return firstName.count > 0
@@ -63,15 +63,21 @@ extension SendTransactionsViewModel: ViewModelType {
                 return !isEmpty && phoneNumber.count <= selectedCountry.maxNumberAfterPrefix
             })
         
+        let isValidBinaria = input.binariaDidEndEditing
+            .map{ text -> Bool in
+                text.filter{ $0 != "0" && $0 != "1"}.count == 0
+            }
+        
         let isValidForm = Driver
-            .combineLatest(isValid, isValidPhoneNumber)
-            .map { $0 && $1}
+            .combineLatest(isValid, isValidPhoneNumber, isValidBinaria)
+            .map { $0 && $1 && $2}
             .startWith(false)
         
         return Output(alertTrigger: alertTrigger,
                       amountInLocalCurrency: amountToSend,
                       isValid: isValidForm,
-                      isValidPhoneNumber: isValidPhoneNumber)
+                      isValidPhoneNumber: isValidPhoneNumber,
+                      isValidBinaria: isValidBinaria)
     }
     
 }

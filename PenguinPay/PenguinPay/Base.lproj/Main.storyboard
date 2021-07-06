@@ -22,7 +22,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlp-cl-2he">
-                                <rect key="frame" x="20" y="762" width="374" height="50"/>
+                                <rect key="frame" x="20" y="802" width="374" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.78823529411764703" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="y3S-BF-JAP"/>
@@ -33,7 +33,10 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRm-oJ-sQB">
-                                <rect key="frame" x="186.5" y="436.5" width="41.5" height="20.5"/>
+                                <rect key="frame" x="186.5" y="416.5" width="41.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.5" id="VfN-2t-7Ih"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -83,11 +86,11 @@
                             <constraint firstItem="GRm-oJ-sQB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1pA-IW-DCF"/>
                             <constraint firstItem="vlp-cl-2he" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="E07-wH-U6n"/>
                             <constraint firstItem="zig-ho-9Ow" firstAttribute="top" secondItem="DL2-lj-irU" secondAttribute="bottom" constant="50" id="HxX-ye-Rt7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vlp-cl-2he" secondAttribute="bottom" constant="50" id="NwE-GT-Hdf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vlp-cl-2he" secondAttribute="bottom" constant="10" id="NwE-GT-Hdf"/>
                             <constraint firstItem="DL2-lj-irU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PYv-nQ-X7R"/>
                             <constraint firstItem="vlp-cl-2he" firstAttribute="width" secondItem="zig-ho-9Ow" secondAttribute="width" id="U0k-dz-1Kh"/>
                             <constraint firstItem="zig-ho-9Ow" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nvk-Yn-A3p"/>
-                            <constraint firstItem="GRm-oJ-sQB" firstAttribute="top" secondItem="zig-ho-9Ow" secondAttribute="bottom" constant="50" id="oJh-zG-4JH"/>
+                            <constraint firstItem="GRm-oJ-sQB" firstAttribute="top" secondItem="zig-ho-9Ow" secondAttribute="bottom" constant="30" id="oJh-zG-4JH"/>
                             <constraint firstItem="zig-ho-9Ow" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pAC-3H-kOZ"/>
                             <constraint firstItem="vlp-cl-2he" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GRm-oJ-sQB" secondAttribute="bottom" constant="20" id="uAU-UR-6n9"/>
                             <constraint firstItem="DL2-lj-irU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="vBz-Uv-6ZX"/>
@@ -111,6 +114,9 @@
     </scenes>
     <designables>
         <designable name="42H-Iy-pCr">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="AUz-mM-BpQ">
             <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="a1W-Ot-M13">
