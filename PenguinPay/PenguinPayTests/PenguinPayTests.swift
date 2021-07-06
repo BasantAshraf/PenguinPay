@@ -32,7 +32,7 @@ class ExtensionsTests: XCTestCase, CurrencyConverterProtocol {
         XCTAssertEqual(binStr.trimmedLeadingZeros(), decInt.decToBinString())
         XCTAssertEqual(decInt, binStr.binToDec())
         XCTAssertEqual(binStr.trimmedLeadingZeros(), decDouble.decToBinString())
-        XCTAssertEqual("01111100010001".trimmedLeadingZeros(), exchange(Binaria: binStr))
+        XCTAssertEqual("01111100010001".trimmedLeadingZeros(), testExchange(Binaria: binStr))
     }
 
 }
